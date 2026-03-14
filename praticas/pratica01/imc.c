@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 
 /*imc.c: Ler o peso e a altura de uma pessoa, calcular o IMC e informar a situação dela conforme a escala abaixo
 do peso (< 18.5), peso normal (18.5 até 24.9), sobrepeso (25.0 até 29.9) ou obesidade (30.0+);*/
@@ -35,6 +35,8 @@ do peso (< 18.5), peso normal (18.5 até 24.9), sobrepeso (25.0 até 29.9) ou ob
     
     return 0;
 }*/
+
+#include <stdio.h>
 
 int main(){
 float calcular_imc(float altura, float peso){

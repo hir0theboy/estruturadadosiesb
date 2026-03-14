@@ -1,4 +1,4 @@
-    #include <stdio.h>
+
 
     /*caixa_eletronico.c: Ler o valor de um saque e calcular a quantidade de notas necessárias nas cédulas
     de 200, 100, 50, 20, 10, 5 e 2, utilizando a menor quantidade possível de notas. O valor máximo permitido para saque é 1000.*/
@@ -49,7 +49,7 @@
     }*/
 
 
-    int main() {
+    /*int main() {
 
         int valor;
         int n200, n100, n50, n20, n10, n5, n2;
@@ -108,4 +108,63 @@
             n200==1 && n100==0 && n50==0 && n20==0 && n10==0 && n5==0 && n2==0);
 
         return 0;
-    }
+    }*/
+
+    #include <stdio.h>
+
+typedef struct {
+    int n200;
+    int n100;
+    int n50;
+    int n20;
+    int n10;
+    int n5;
+    int n2;
+} Saque;
+
+Saque saque(int valor) {
+
+    Saque s;
+
+    s.n200 = valor / 200;
+    valor %= 200;
+
+    s.n100 = valor / 100;
+    valor %= 100;
+
+    s.n50 = valor / 50;
+    valor %= 50;
+
+    s.n20 = valor / 20;
+    valor %= 20;
+
+    s.n10 = valor / 10;
+    valor %= 10;
+
+    s.n5 = valor / 5;
+    valor %= 5;
+
+    s.n2 = valor / 2;
+
+    return s;
+}
+
+int main() {
+
+    Saque s;
+
+    s = saque(376);
+
+    printf("valor = 376 -> 200:%d 100:%d 50:%d 20:%d 10:%d 5:%d 2:%d => %i\n",
+        s.n200, s.n100, s.n50, s.n20, s.n10, s.n5, s.n2,
+        s.n200==1 && s.n100==1 && s.n50==1 && s.n20==1 && s.n10==0 && s.n5==1 && s.n2==0);
+
+
+    s = saque(200);
+
+    printf("valor = 200 -> 200:%d => %i\n",
+        s.n200,
+        s.n200==1 && s.n100==0 && s.n50==0 && s.n20==0 && s.n10==0 && s.n5==0 && s.n2==0);
+
+    return 0;
+}
